@@ -1,0 +1,63 @@
+{
+  "name": "gynoid",
+  "script": "index.js",
+  "extendable": false,
+  "actions": [
+    {
+      "function": "registerDroid",
+      "aliases": ["register :name([^\\s]+) using :token([^\\s]+)"],
+      "acls": {
+        "dm": true
+      },
+      "premessage": "Registering Droid..."
+    },
+    {
+      "function": "unregisterDroid",
+      "aliases": ["unregister :name([^\\s]+)"],
+      "acls": {
+        "dm": true
+      },
+      "premessage": "Unregistering Droid..."
+    },
+    {
+      "function": "reloadDroid",
+      "aliases": ["reload :name([^\\s]+)"],
+      "acls": {
+        "dm": true
+      },
+      "premessage": "Reloading Droid..."
+    },
+    {
+      "function": "extendDroid",
+      "aliases": ["extend :name([^\\s]+) from :repo([^\\s]+)"],
+      "acls": {
+        "dm": true
+      },
+      "premessage": "Extending Droid..."
+    },
+    {
+      "function": "removeExtension",
+      "aliases": ["remove extension :extension([^\\s]+) from :name([^\\s]+)"],
+      "acls": {
+        "dm": true
+      },
+      "premessage": "Removing extension..."
+    },
+    {
+      "function": "listExtensions",
+      "aliases": ["list extensions for :name([^\\s]+)"],
+      "acls": {
+        "dm": true
+      },
+      "premessage": "Listing extensions..."
+    },
+    {
+      "function": "ping",
+      "aliases": ["ping"],
+      "acls": {
+        "dm": true
+      },
+      "premessage": "Ping Droid..."
+    }
+  ]
+}
