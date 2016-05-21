@@ -2,7 +2,7 @@ var gynoid = require('../../index.js');
 
 module.exports = {
   registerDroid: function(req, res) {
-    var name = req.params.name;
+    var name = req.params.name === 'me' ? 'gynoid' : req.params.name;
     var token = req.params.token;
 
     gynoid.registerDroid(name, token)
@@ -14,7 +14,7 @@ module.exports = {
       });
   },
   unregisterDroid: function(req, res) {
-    var name = req.params.name;
+    var name = req.params.name === 'me' ? 'gynoid' : req.params.name;
 
     gynoid.unregisterDroid(name)
       .then(function() {
@@ -25,7 +25,12 @@ module.exports = {
       });
   },
   reloadDroid: function(req, res) {
-    var name = req.params.name;
+    var name = req.params.name === 'me' ? 'gynoid' : req.params.name;
+    var droid = gynoid.droids[name];
+
+    if (!droid) {
+      return res.text('Unable to reload droid.\n```{error: "droid_unknown", message: "Could not find droid in the registry."}```').send();
+    }
 
     gynoid.reloadDroid(name)
       .then(function() {
@@ -48,7 +53,7 @@ module.exports = {
       });
   },
   removeExtension: function(req, res) {
-    var name = req.params.name;
+    var name = req.params.name === 'me' ? 'gynoid' : req.params.name;
     var extension = req.params.extension;
 
     gynoid.removeExtension(name, extension)
@@ -60,8 +65,9 @@ module.exports = {
       });
   },
   listExtensions: function(req, res) {
-    var name = req.params.name;
+    var name = req.params.name === 'me' ? 'gynoid' : req.params.name;
     var droid = gynoid.droids[name];
+
     if (!droid) {
       return res.text('Unable to list extensions.\n```{error: "droid_unknown", message: "Could not find droid in the registry."}```').send();
     }
