@@ -65,6 +65,22 @@
         "channels": ["gynoid_manage"]
       },
       "premessage": "Ping Droid..."
+    },
+    {
+      "function": "addEnv",
+      "aliases": ["add env :variable([^\\s]+)"],
+      "acls": {
+        "dm": true,
+        "channels": ["gynoid_manage"]
+      }
+    },
+    {
+      "function": "removeEnv",
+      "aliases": ["remove env :variable([^\\s]+)"],
+      "acls": {
+        "dm": true,
+        "channels": ["gynoid_manage"]
+      }
     }
   ]
 }

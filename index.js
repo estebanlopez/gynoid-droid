@@ -78,5 +78,26 @@ module.exports = {
   },
   ping: function(req, res) {
     return res.text('`Hey Pong!`').send();
+  },
+  addEnv: function(req, res) {
+    try {
+      var varName = req.params.variable.split('=')[0];
+      var value = req.params.variable.split('=')[1];
+
+      process.env[varName] = value;
+      return res.text('Variable added').send();
+    } catch(e) {
+      return res.text('Unable to add env variable').send();
+    }
+  },
+  removeEnv: function(req, res) {
+    try {
+      var varName = req.params.variable;
+
+      delete process.env[varName];
+      return res.text('Variable removed').send();
+    } catch(e) {
+      return res.text('Unable to remove env variable').send();
+    }
   }
 };
