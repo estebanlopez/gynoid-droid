@@ -1,10 +1,10 @@
-module.exports = function(context, gynoid) {
+module.exports = function(context) {
   return {
     registerDroid: function(req, res) {
       var name = req.params.name === 'me' ? 'gynoid' : req.params.name;
       var token = req.params.token;
 
-      gynoid.registerDroid(name, token)
+      context.gynoid.registerDroid(name, token)
         .then(function() {
           res.text('Droid ' + name + ' successfully registered').send();
         })
@@ -15,7 +15,7 @@ module.exports = function(context, gynoid) {
     unregisterDroid: function(req, res) {
       var name = req.params.name === 'me' ? 'gynoid' : req.params.name;
 
-      gynoid.unregisterDroid(name)
+      context.gynoid.unregisterDroid(name)
         .then(function() {
           res.text('Droid ' + name + ' successfully unregistered').send();
         })
@@ -25,13 +25,13 @@ module.exports = function(context, gynoid) {
     },
     reloadDroid: function(req, res) {
       var name = req.params.name === 'me' ? 'gynoid' : req.params.name;
-      var droid = gynoid.droids[name];
+      var droid = context.gynoid.droids[name];
 
       if (!droid) {
         return res.text('Unable to reload droid.\n```{error: "droid_unknown", message: "Could not find droid in the registry."}```').send();
       }
 
-      gynoid.reloadDroid(name)
+      context.gynoid.reloadDroid(name)
         .then(function() {
           res.text('Droid ' + name + ' successfully reloaded').send();
         })
@@ -43,7 +43,7 @@ module.exports = function(context, gynoid) {
       var name = req.params.name;
       var repo = req.params.repo;
 
-      gynoid.installFromGitHub(name, repo)
+      context.gynoid.installFromGitHub(name, repo)
         .then(function() {
           res.text('Droid ' + name + ' successfully extended').send();
         })
@@ -55,7 +55,7 @@ module.exports = function(context, gynoid) {
       var name = req.params.name === 'me' ? 'gynoid' : req.params.name;
       var extension = req.params.extension;
 
-      gynoid.removeExtension(name, extension)
+      context.gynoid.removeExtension(name, extension)
         .then(function() {
           res.text('Extension ' + extension + ' successfully removed').send();
         })
@@ -65,7 +65,7 @@ module.exports = function(context, gynoid) {
     },
     listExtensions: function(req, res) {
       var name = req.params.name === 'me' ? 'gynoid' : req.params.name;
-      var droid = gynoid.droids[name];
+      var droid = context.gynoid.droids[name];
 
       if (!droid) {
         return res.text('Unable to list extensions.\n```{error: "droid_unknown", message: "Could not find droid in the registry."}```').send();
