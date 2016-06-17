@@ -4,20 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/auth0/gynoid-droid.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Auth0",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/auth0/gynoid-droid/issues"
   },
-  "homepage": "https://github.com/auth0/gynoid-droid#readme",
-  "dependencies": {
-    "gynoid": "auth0/gynoid"
-  }
+  "homepage": "https://github.com/auth0/gynoid-droid#readme"  
 }
