@@ -72,7 +72,7 @@
       "acls": {
         "dm": true,
         "channels": ["gynoid_manage"]
-      },
+      }
     },
     {
       "function": "removeEnv",
