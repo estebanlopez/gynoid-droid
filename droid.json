@@ -7,6 +7,8 @@
       "function": "registerDroid",
       "aliases": ["register :name([^\\s]+) using :token([^\\s]+)"],
       "acls": {
+        "dm": true,
+        "channels": ["gynoid_manage"]
       },
       "premessage": "Registering Droid..."
     },
@@ -14,6 +16,8 @@
       "function": "unregisterDroid",
       "aliases": ["unregister :name([^\\s]+)"],
       "acls": {
+        "dm": true,
+        "channels": ["gynoid_manage"]
       },
       "premessage": "Unregistering Droid..."
     },
@@ -21,6 +25,8 @@
       "function": "reloadDroid",
       "aliases": ["reload :name([^\\s]+)"],
       "acls": {
+        "dm": true,
+        "channels": ["gynoid_manage"]
       },
       "premessage": "Reloading Droid..."
     },
@@ -28,6 +34,8 @@
       "function": "extendDroid",
       "aliases": ["extend :name([^\\s]+) from :repo([^\\s]+)"],
       "acls": {
+        "dm": true,
+        "channels": ["gynoid_manage"]
       },
       "premessage": "Extending Droid..."
     },
@@ -35,6 +43,8 @@
       "function": "removeExtension",
       "aliases": ["remove extension :extension([^\\s]+) from :name([^\\s]+)"],
       "acls": {
+        "dm": true,
+        "channels": ["gynoid_manage"]
       },
       "premessage": "Removing extension..."
     },
@@ -42,6 +52,8 @@
       "function": "listExtensions",
       "aliases": ["list extensions for :name([^\\s]+)"],
       "acls": {
+        "dm": true,
+        "channels": ["gynoid_manage"]
       },
       "premessage": "Listing extensions..."
     },
@@ -49,6 +61,8 @@
       "function": "ping",
       "aliases": ["ping"],
       "acls": {
+        "dm": true,
+        "channels": ["gynoid_manage"]
       },
       "premessage": "Ping Droid..."
     },
@@ -56,13 +70,17 @@
       "function": "addEnv",
       "aliases": ["add env :variable([^\\s]+)"],
       "acls": {
-      }
+        "dm": true,
+        "channels": ["gynoid_manage"]
+      },
     },
     {
       "function": "removeEnv",
       "aliases": ["remove env :variable([^\\s]+)"],
       "acls": {
-      }
+        "dm": true,
+        "channels": ["gynoid_manage"]
+      },
     }
   ]
 }
