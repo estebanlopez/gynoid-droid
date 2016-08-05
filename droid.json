@@ -67,16 +67,32 @@
       "premessage": "Ping Droid..."
     },
     {
-      "function": "addEnv",
-      "aliases": ["add env :variable([^\\s]+)"],
+      "function": "addKey",
+      "aliases": ["add key :key([^\\s]+) :value([^\\s]+) to :droid([^\\s]+)"],
       "acls": {
         "dm": true,
         "channels": ["gynoid_manage"]
       }
     },
     {
-      "function": "removeEnv",
-      "aliases": ["remove env :variable([^\\s]+)"],
+      "function": "removeKey",
+      "aliases": ["remove key :key([^\\s]+)"],
+      "acls": {
+        "dm": true,
+        "channels": ["gynoid_manage"]
+      }
+    },
+    {
+      "function": "listKeys",
+      "aliases": ["list keys for :droid([^\\s]+)"],
+      "acls": {
+        "dm": true,
+        "channels": ["gynoid_manage"]
+      }
+    },
+    {
+      "function": "listAllKeys",
+      "aliases": ["list all keys"],
       "acls": {
         "dm": true,
         "channels": ["gynoid_manage"]
