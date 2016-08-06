@@ -76,7 +76,7 @@
     },
     {
       "function": "removeKey",
-      "aliases": ["remove key :key([^\\s]+)"],
+      "aliases": ["remove key :key([^\\s]+) from :droid([^\\s]+)"],
       "acls": {
         "dm": true,
         "channels": ["gynoid_manage"]

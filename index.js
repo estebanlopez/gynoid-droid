@@ -84,7 +84,7 @@ module.exports = function(context) {
         var value = req.params.value;
         var droid = req.params.droid;
 
-        conext.gynoid.addKey(droid, key, value);
+        context.gynoid.addKey(droid, key, value);
         return res.text('Key added').send();
       } catch(e) {
         return res.text('Unable to add Key').send();
@@ -92,19 +92,19 @@ module.exports = function(context) {
     },
     removeKey: function(req, res) {
       try {
-        var key = req.params.key;        
+        var key = req.params.key;
         var droid = req.params.droid;
 
-        conext.gynoid.removeKey(droid, key);
+        context.gynoid.removeKey(droid, key);
         return res.text('Key was removed').send();
       } catch(e) {
         return res.text('Unable to remove Key').send();
       }
     },
     listKeys: function(req, res) {
-      try {          
+      try {
         var droid = req.params.droid;
-        var keys = conext.gynoid.listKeys(droid);
+        var keys = context.gynoid.listKeys(droid);
         var text = keys.length === 0 ? 'No configured keys for this droid.' : keys.join('\n');
 
         return res.text('Configured keys for ' + droid + ':\n' + text).send();
@@ -114,7 +114,7 @@ module.exports = function(context) {
     },
     listAllKeys: function(req, res) {
       try {
-        var keys = conext.gynoid.listAllKeys();
+        var keys = context.gynoid.listAllKeys();
         var text = keys.length === 0 ? 'No keys found.' : keys.join('\n');
         return res.text('Configured keys:\n' + text).send();
       } catch(e) {
