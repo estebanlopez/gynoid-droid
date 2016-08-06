@@ -78,25 +78,47 @@ module.exports = function(context) {
     ping: function(req, res) {
       return res.text('`Hey Pong!`').send();
     },
-    addEnv: function(req, res) {
+    addKey: function(req, res) {
       try {
-        var varName = req.params.variable.split('=')[0];
-        var value = req.params.variable.split('=')[1];
+        var key = req.params.key;
+        var value = req.params.value;
+        var droid = req.params.droid;
 
-        process.env[varName] = value;
-        return res.text('Variable added').send();
+        context.gynoid.addKey(droid, key, value);
+        return res.text('Key added').send();
       } catch(e) {
-        return res.text('Unable to add env variable').send();
+        return res.text('Unable to add Key').send();
       }
     },
-    removeEnv: function(req, res) {
+    removeKey: function(req, res) {
       try {
-        var varName = req.params.variable;
+        var key = req.params.key;
+        var droid = req.params.droid;
 
-        delete process.env[varName];
-        return res.text('Variable removed').send();
+        context.gynoid.removeKey(droid, key);
+        return res.text('Key was removed').send();
       } catch(e) {
-        return res.text('Unable to remove env variable').send();
+        return res.text('Unable to remove Key').send();
+      }
+    },
+    listKeys: function(req, res) {
+      try {
+        var droid = req.params.droid;
+        var keys = context.gynoid.listKeys(droid);
+        var text = keys.length === 0 ? 'No configured keys for this droid.' : keys.join('\n');
+
+        return res.text('Configured keys for ' + droid + ':\n' + text).send();
+      } catch(e) {
+        return res.text('Unable to list the keys').send();
+      }
+    },
+    listAllKeys: function(req, res) {
+      try {
+        var keys = context.gynoid.listAllKeys();
+        var text = keys.length === 0 ? 'No keys found.' : keys.join('\n');
+        return res.text('Configured keys:\n' + text).send();
+      } catch(e) {
+        return res.text('Unable to list the keys').send();
       }
     }
   };
