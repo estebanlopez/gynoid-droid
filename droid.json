@@ -7,7 +7,6 @@
       "function": "registerDroid",
       "aliases": ["register :name([^\\s]+) using :token([^\\s]+)"],
       "acls": {
-        "dm": true,
         "channels": ["gynoid_manage"]
       },
       "premessage": "Registering Droid..."
@@ -16,7 +15,6 @@
       "function": "unregisterDroid",
       "aliases": ["unregister :name([^\\s]+)"],
       "acls": {
-        "dm": true,
         "channels": ["gynoid_manage"]
       },
       "premessage": "Unregistering Droid..."
@@ -25,7 +23,6 @@
       "function": "reloadDroid",
       "aliases": ["reload :name([^\\s]+)"],
       "acls": {
-        "dm": true,
         "channels": ["gynoid_manage"]
       },
       "premessage": "Reloading Droid..."
@@ -34,7 +31,6 @@
       "function": "extendDroid",
       "aliases": ["extend :name([^\\s]+) from :repo([^\\s]+)"],
       "acls": {
-        "dm": true,
         "channels": ["gynoid_manage"]
       },
       "premessage": "Extending Droid..."
@@ -43,7 +39,6 @@
       "function": "removeExtension",
       "aliases": ["remove extension :extension([^\\s]+) from :name([^\\s]+)"],
       "acls": {
-        "dm": true,
         "channels": ["gynoid_manage"]
       },
       "premessage": "Removing extension..."
@@ -52,7 +47,6 @@
       "function": "listExtensions",
       "aliases": ["list extensions for :name([^\\s]+)"],
       "acls": {
-        "dm": true,
         "channels": ["gynoid_manage"]
       },
       "premessage": "Listing extensions..."
@@ -61,7 +55,6 @@
       "function": "ping",
       "aliases": ["ping"],
       "acls": {
-        "dm": true,
         "channels": ["gynoid_manage"]
       },
       "premessage": "Ping Droid..."
@@ -70,7 +63,6 @@
       "function": "addKey",
       "aliases": ["add key :key([^\\s]+) :value([^\\s]+) to :droid([^\\s]+)"],
       "acls": {
-        "dm": true,
         "channels": ["gynoid_manage"]
       }
     },
@@ -78,7 +70,6 @@
       "function": "removeKey",
       "aliases": ["remove key :key([^\\s]+) from :droid([^\\s]+)"],
       "acls": {
-        "dm": true,
         "channels": ["gynoid_manage"]
       }
     },
@@ -86,7 +77,6 @@
       "function": "listKeys",
       "aliases": ["list keys for :droid([^\\s]+)"],
       "acls": {
-        "dm": true,
         "channels": ["gynoid_manage"]
       }
     },
@@ -94,7 +84,6 @@
       "function": "listAllKeys",
       "aliases": ["list all keys"],
       "acls": {
-        "dm": true,
         "channels": ["gynoid_manage"]
       }
     }
