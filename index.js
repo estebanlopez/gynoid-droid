@@ -9,7 +9,7 @@ module.exports = function(context) {
           res.text('Droid ' + name + ' successfully registered').send();
         })
         .catch(function(err) {
-          res.text('Unable to register Droid.\n```' + JSON.stringify(err) + '```').send();
+          res.text('Unable to register Droid.\n```' + err + '```').send();
         });
     },
     unregisterDroid: function(req, res) {
@@ -36,7 +36,7 @@ module.exports = function(context) {
           res.text('Droid ' + name + ' successfully reloaded').send();
         })
         .catch(function(err) {
-          res.text('Unable to reload Droid.\n```' + JSON.stringify(err) + '```').send();
+          res.text('Unable to reload Droid.\n```' + err + '```').send();
         });
     },
     extendDroid: function(req, res) {
@@ -48,7 +48,7 @@ module.exports = function(context) {
           res.text('Droid ' + name + ' successfully extended').send();
         })
         .catch(function(err) {
-          res.text('Unable to extend Droid.\n```' + JSON.stringify(err) + '```').send();
+          res.text('Unable to extend Droid.\n```' + err + '```').send();
         });
     },
     removeExtension: function(req, res) {
@@ -60,7 +60,7 @@ module.exports = function(context) {
           res.text('Extension ' + extension + ' successfully removed').send();
         })
         .catch(function(err) {
-          res.text('Unable to remove extension ' + extension + '.\n```' + JSON.stringify(err) + '```').send();
+          res.text('Unable to remove extension ' + extension + '.\n```' + err + '```').send();
         });
     },
     listExtensions: function(req, res) {
