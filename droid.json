@@ -57,7 +57,10 @@
     {
       "function": "secure",
       "aliases": ["secure :channel([^\\s]+)"],
-      "premessage": "_Securing Gynoid..._"
+      "premessage": "_Securing Gynoid..._",
+      "acls": {
+        "explicitMention": true
+      }
     }
   ]
 }
