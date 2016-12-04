@@ -53,6 +53,11 @@
     {
       "function": "listAllKeys",
       "aliases": ["list all keys"]
+    },
+    {
+      "function": "secure",
+      "aliases": ["secure :channel([^\\s]+)"],
+      "premessage": "_Securing Gynoid..._"
     }
   ]
 }

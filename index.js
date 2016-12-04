@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 module.exports = function(context) {
   return {
     registerDroid: function(req, res) {
@@ -119,6 +121,23 @@ module.exports = function(context) {
         return res.text('Configured keys:\n' + text).send();
       } catch(e) {
         return res.text('Unable to list the keys').send();
+      }
+    },
+    secure: function(req, res) {
+      try {
+        var droid = require('./droid.json');
+        droid.actions = droid.actions.map((action) => {
+          action.acls = action.acls || {};
+          action.acls.channels = req.params.channel;
+          return action;
+        });
+
+        fs.writeFileSync(__dirname + '/droid.json', JSON.stringify(droid, null, 2));
+        req.params.name = 'me';
+        res.text('Secured gynoid in channel ' + req.params.channel).send();
+        return this.reloadDroid(req, res);
+      } catch (err) {
+        return res.text('Unable to secure gynoid.\n```' + err + '```').send();
       }
     }
   };
