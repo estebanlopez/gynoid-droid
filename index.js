@@ -42,12 +42,15 @@ module.exports = function(context) {
         });
     },
     extendDroid: function(req, res) {
+      var gynoid = this;
       var name = req.params.name;
       var repo = req.params.repo;
 
       context.gynoid.installFromGitHub(name, repo)
         .then(function() {
           res.text('Droid ' + name + ' successfully extended').send();
+          req.params.name = name;
+          return gynoid.reloadDroid(req, res);
         })
         .catch(function(err) {
           res.text('Unable to extend Droid.\n```' + err + '```').send();
@@ -60,6 +63,8 @@ module.exports = function(context) {
       context.gynoid.removeExtension(name, extension)
         .then(function() {
           res.text('Extension ' + extension + ' successfully removed').send();
+          req.params.name = name;
+          return gynoid.reloadDroid(req, res);
         })
         .catch(function(err) {
           res.text('Unable to remove extension ' + extension + '.\n```' + err + '```').send();
