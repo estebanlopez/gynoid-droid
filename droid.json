@@ -6,32 +6,50 @@
     {
       "function": "registerDroid",
       "aliases": ["register :name([^\\s]+) using :token([^\\s]+)"],
-      "premessage": "Registering Droid..."
+      "premessage": "Registering Droid...",
+      "acls": {
+        "explicitMention": true
+      }
     },
     {
       "function": "unregisterDroid",
       "aliases": ["unregister :name([^\\s]+)"],
-      "premessage": "Unregistering Droid..."
+      "premessage": "Unregistering Droid...",
+      "acls": {
+        "explicitMention": true
+      }
     },
     {
       "function": "reloadDroid",
       "aliases": ["reload :name([^\\s]+)"],
-      "premessage": "Reloading Droid..."
+      "premessage": "Reloading Droid...",
+      "acls": {
+        "explicitMention": true
+      }
     },
     {
       "function": "extendDroid",
       "aliases": ["extend :name([^\\s]+) from :repo([^\\s]+)"],
-      "premessage": "Extending Droid..."
+      "premessage": "Extending Droid...",
+      "acls": {
+        "explicitMention": true
+      }
     },
     {
       "function": "removeExtension",
       "aliases": ["remove extension :extension([^\\s]+) from :name([^\\s]+)"],
-      "premessage": "Removing extension..."
+      "premessage": "Removing extension...",
+      "acls": {
+        "explicitMention": true
+      }
     },
     {
       "function": "listExtensions",
       "aliases": ["list extensions for :name([^\\s]+)"],
-      "premessage": "Listing extensions..."
+      "premessage": "Listing extensions...",
+      "acls": {
+        "explicitMention": true
+      }
     },
     {
       "function": "ping",
@@ -40,19 +58,31 @@
     },
     {
       "function": "addKey",
-      "aliases": ["add key :key([^\\s]+) :value([^\\s]+) to :droid([^\\s]+)"]
+      "aliases": ["add key :key([^\\s]+) :value([^\\s]+) to :droid([^\\s]+)"],
+      "acls": {
+        "explicitMention": true
+      }
     },
     {
       "function": "removeKey",
-      "aliases": ["remove key :key([^\\s]+) from :droid([^\\s]+)"]
+      "aliases": ["remove key :key([^\\s]+) from :droid([^\\s]+)"],
+      "acls": {
+        "explicitMention": true
+      }
     },
     {
       "function": "listKeys",
-      "aliases": ["list keys for :droid([^\\s]+)"]
+      "aliases": ["list keys for :droid([^\\s]+)"],
+      "acls": {
+        "explicitMention": true
+      }
     },
     {
       "function": "listAllKeys",
-      "aliases": ["list all keys"]
+      "aliases": ["list all keys"],
+      "acls": {
+        "explicitMention": true
+      }
     },
     {
       "function": "secure",
